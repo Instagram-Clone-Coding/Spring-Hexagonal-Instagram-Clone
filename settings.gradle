@@ -1,0 +1,8 @@
+rootProject.name = 'Spring-Hexagonal-Instagram-Clone'
+include 'instagram-api'
+include 'instagram-common'
+include 'instagram-domain'
+include 'instagram-data'
+include 'instagram-application'
+include 'instagram-adapter'
+

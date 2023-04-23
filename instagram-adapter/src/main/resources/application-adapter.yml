@@ -1,0 +1,38 @@
+spring:
+  config:
+    activate:
+      on-profile: adapter
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+  servlet:
+    multipart:
+      location: ~\\usr\\spring\\upload
+
+cloud:
+  aws:
+    credentials:
+      accessKey: ${AWS_ACCESS_KEY}
+      secretKey: ${AWS_SECRET_KEY}
+    s3:
+      bucket: instagram-s3-dev
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+
+kakao:
+  rest:
+    key: ${KAKAO_REST_KEY}

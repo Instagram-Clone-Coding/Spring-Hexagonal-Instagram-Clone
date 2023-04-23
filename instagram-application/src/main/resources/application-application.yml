@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: application
+
+  max-login-device: 5
+
+jwt:
+  key: ${JWT_KEY}
+
+async:
+  core-pool-size: 3 # 기본 스레드풀 사이즈
+  max-pool-size: 10 # 최대 사이즈
+  queue-capacity: 10 # 대기 queue 용량

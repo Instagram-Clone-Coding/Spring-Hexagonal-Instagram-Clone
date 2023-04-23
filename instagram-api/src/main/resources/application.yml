@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    include: adapter, data, application, local
+
+auth:
+  whitelist:
+    api: /login, /login/recovery, /accounts, /**/without,\
+      /accounts/password/email, /accounts/password/reset, /accounts/email, /accounts/check, /ws-connection/**,\
+      /reissue, /logout/only/cookie
+    static: /static/css/**, /static/js/**, *.ico
+    swagger: /v2/api-docs, /configuration/ui, /swagger-resources, /swagger-resources/**,\
+      /configuration/security, /swagger-ui.html, /webjars/**, /swagger/**, /swagger-ui/**
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server-domain: ec2-52-79-71-191.ap-northeast-2.compute.amazonaws.com
+access-token-expires: 9000000 # 150분
+refresh-token-expires: 604800000 # 7일
+
+logging:
+  level:
+    root: debug
+    org:
+      hibernate:
+        SQL: debug
+        type: trace

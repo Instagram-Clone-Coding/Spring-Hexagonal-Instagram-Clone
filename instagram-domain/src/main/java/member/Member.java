@@ -1,5 +1,6 @@
 package member;
 
+import global.Image;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,6 +17,7 @@ public class Member {
 	private String email;
 	private String phone;
 	private Gender gender;
+	private Image image;
 
 	public void updateProfile(UpdateProfileRequest request) {
 		this.username = request.getUsername();
@@ -26,6 +28,10 @@ public class Member {
 		this.email = request.getEmail();
 		this.phone = request.getPhone();
 		this.gender = request.getGender();
+	}
+
+	public void updateImage(Image image) {
+		this.image = image;
 	}
 
 }

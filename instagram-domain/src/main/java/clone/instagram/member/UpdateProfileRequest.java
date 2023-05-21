@@ -1,4 +1,4 @@
-package member;
+package clone.instagram.member;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

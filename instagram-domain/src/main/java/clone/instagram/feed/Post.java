@@ -1,10 +1,10 @@
-package feed;
+package clone.instagram.feed;
 
 import java.time.LocalDateTime;
 
+import clone.instagram.member.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import member.Member;
 
 @Getter
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package feed;
+package clone.instagram.feed;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

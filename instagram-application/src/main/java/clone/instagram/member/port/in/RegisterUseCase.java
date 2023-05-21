@@ -1,4 +1,4 @@
-package member.port.in;
+package clone.instagram.member.port.in;
 
 public interface RegisterUseCase {
 

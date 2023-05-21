@@ -1,8 +1,8 @@
-package member.port.in;
+package clone.instagram.member.port.in;
 
+import clone.instagram.member.Member;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import member.Member;
 
 @Getter
 @AllArgsConstructor

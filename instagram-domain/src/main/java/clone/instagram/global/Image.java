@@ -1,4 +1,4 @@
-package global;
+package clone.instagram.global;
 
 import java.util.Objects;
 

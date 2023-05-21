@@ -1,13 +1,13 @@
-package member.service;
+package clone.instagram.member.service;
 
 import org.springframework.stereotype.Service;
 
+import clone.instagram.member.Member;
+import clone.instagram.member.port.in.RegisterCommand;
+import clone.instagram.member.port.in.RegisterUseCase;
+import clone.instagram.member.port.out.LoadMemberByUsernamePort;
+import clone.instagram.member.port.out.SaveMemberPort;
 import lombok.RequiredArgsConstructor;
-import member.Member;
-import member.port.in.RegisterCommand;
-import member.port.in.RegisterUseCase;
-import member.port.out.LoadMemberByUsernamePort;
-import member.port.out.SaveMemberPort;
 
 @Service
 @RequiredArgsConstructor

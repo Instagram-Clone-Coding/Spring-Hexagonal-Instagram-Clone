@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import clone.instagram.member.Member;
+import clone.instagram.member.port.in.RegisterCommand;
+import clone.instagram.member.port.in.RegisterUseCase;
 import clone.instagram.member.request.RegisterRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import clone.instagram.member.Member;
-import clone.instagram.member.port.in.RegisterCommand;
-import clone.instagram.member.port.in.RegisterUseCase;
 
 @Api(tags = "멤버 인증 API")
 @Validated
@@ -23,6 +23,7 @@ import clone.instagram.member.port.in.RegisterUseCase;
 public class RegisterController {
 
 	private final RegisterUseCase registerUseCase;
+
 	@ApiOperation(value = "회원가입")
 	@ApiResponses({
 		@ApiResponse(code = 200, message = "M001 - 회원가입에 성공하였습니다.\n"
@@ -54,7 +55,7 @@ public class RegisterController {
 				registerRequest.getPassword(),
 				registerRequest.getName(),
 				registerRequest.getEmail()
-		));
+			));
 	}
 
 }

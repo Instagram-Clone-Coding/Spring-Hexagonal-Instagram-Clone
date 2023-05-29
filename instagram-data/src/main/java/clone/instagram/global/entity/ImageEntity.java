@@ -36,12 +36,14 @@ public class ImageEntity {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null || getClass() != obj.getClass())
+		}
+		if (obj == null || getClass() != obj.getClass()) {
 			return false;
+		}
 
-		ImageEntity imageEntity = (ImageEntity)obj;
+		final ImageEntity imageEntity = (ImageEntity)obj;
 		return Objects.equals(getImageUUID(), imageEntity.getImageUUID());
 	}
 

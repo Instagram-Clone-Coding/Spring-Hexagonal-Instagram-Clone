@@ -28,7 +28,7 @@ public class Image {
 			return false;
 		}
 
-		Image image = (Image)obj;
+		final Image image = (Image)obj;
 		return Objects.equals(this.imageUUID, image.getImageUUID());
 	}
 

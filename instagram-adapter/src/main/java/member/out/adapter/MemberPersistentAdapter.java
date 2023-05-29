@@ -1,13 +1,13 @@
-package clone.instagram.member.adapter;
+package member.out.adapter;
 
 import org.springframework.stereotype.Component;
 
 import clone.instagram.member.Member;
-import clone.instagram.member.adapter.mapper.MemberMapper;
-import clone.instagram.member.entity.MemberEntity;
+import clone.instagram.jpa.mapper.MemberMapper;
+import clone.instagram.jpa.entity.member.MemberEntity;
 import clone.instagram.member.port.out.LoadMemberByUsernamePort;
 import clone.instagram.member.port.out.SaveMemberPort;
-import clone.instagram.member.repository.MemberRepository;
+import clone.instagram.jpa.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 
 @Component

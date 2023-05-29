@@ -1,4 +1,4 @@
-package clone.instagram.global.entity;
+package clone.instagram.jpa.entity.global;
 
 import java.util.Objects;
 

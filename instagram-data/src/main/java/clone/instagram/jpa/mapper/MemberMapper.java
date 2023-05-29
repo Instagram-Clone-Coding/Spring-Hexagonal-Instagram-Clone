@@ -1,10 +1,9 @@
-package clone.instagram.member.adapter.mapper;
+package clone.instagram.jpa.mapper;
 
 import org.springframework.stereotype.Component;
 
-import clone.instagram.global.mapper.ImageMapper;
 import clone.instagram.member.Member;
-import clone.instagram.member.entity.MemberEntity;
+import clone.instagram.jpa.entity.member.MemberEntity;
 import lombok.RequiredArgsConstructor;
 
 @Component

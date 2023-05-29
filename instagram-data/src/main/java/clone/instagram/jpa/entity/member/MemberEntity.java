@@ -1,4 +1,4 @@
-package clone.instagram.member.entity;
+package clone.instagram.jpa.entity.member;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -14,7 +14,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import clone.instagram.global.ImageType;
-import clone.instagram.global.entity.ImageEntity;
+import clone.instagram.jpa.entity.global.ImageEntity;
 import clone.instagram.member.Gender;
 import lombok.AccessLevel;
 import lombok.Getter;

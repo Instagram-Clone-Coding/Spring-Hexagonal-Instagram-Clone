@@ -1,9 +1,9 @@
-package clone.instagram.global.mapper;
+package clone.instagram.jpa.mapper;
 
 import org.springframework.stereotype.Component;
 
 import clone.instagram.global.Image;
-import clone.instagram.global.entity.ImageEntity;
+import clone.instagram.jpa.entity.global.ImageEntity;
 
 @Component
 public class ImageMapper {

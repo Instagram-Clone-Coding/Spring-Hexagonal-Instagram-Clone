@@ -1,4 +1,4 @@
-package member.out.adapter;
+package clone.instagram.member.out.adapter;
 
 import org.springframework.stereotype.Component;
 

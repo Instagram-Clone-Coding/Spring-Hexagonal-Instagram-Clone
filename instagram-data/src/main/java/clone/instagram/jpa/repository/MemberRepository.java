@@ -1,10 +1,10 @@
-package clone.instagram.member.repository;
+package clone.instagram.jpa.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import clone.instagram.member.entity.MemberEntity;
+import clone.instagram.jpa.entity.member.MemberEntity;
 
 public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
 

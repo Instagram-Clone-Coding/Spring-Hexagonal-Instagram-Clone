@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import clone.instagram.member.Member;
-import clone.instagram.member.port.in.RegisterCommand;
 import clone.instagram.member.port.in.RegisterUseCase;
 import clone.instagram.member.request.RegisterRequest;
 import io.swagger.annotations.Api;
@@ -36,26 +35,30 @@ public class RegisterController {
 	@PostMapping(value = "/accounts")
 	public ResponseEntity<Boolean> register(@RequestBody RegisterRequest registerRequest) {
 		// TODO 반환 타입 정의 후 수정
-		final RegisterCommand registerCommand = mapRequestToCommand(registerRequest);
+		final RegisterUseCase.Command command = mapRequestToCommand(registerRequest);
 
-		final boolean isRegistered = registerUseCase.register(registerCommand);
-		if (isRegistered) {
-			return ResponseEntity.ok(true);
-			// return ResponseEntity.ok(ResultResponse.of(REGISTER_SUCCESS, true));
-		} else {
-			return ResponseEntity.ok(false);
-			// return ResponseEntity.ok(ResultResponse.of(CONFIRM_EMAIL_FAIL, false));
-		}
+		return ResponseEntity.ok(toResponseEntity(registerUseCase.invoke(command)));
 	}
 
-	private RegisterCommand mapRequestToCommand(RegisterRequest registerRequest) {
-		return new RegisterCommand(
-			new Member(
+	private RegisterUseCase.Command mapRequestToCommand(RegisterRequest registerRequest) {
+		return new RegisterUseCase.AccountInfoCommand(
+			Member.ofUnregistered(
 				registerRequest.getUsername(),
 				registerRequest.getPassword(),
 				registerRequest.getName(),
 				registerRequest.getEmail()
-			));
+			)
+		);
+	}
+
+	private boolean toResponseEntity(boolean isRegistered) {
+		return isRegistered;
+		// TODO ResultEntity 적용
+		// if (isRegistered) {
+		// 	return ResponseEntity.ok(ResultResponse.of(REGISTER_SUCCESS, true));
+		// } else {
+		// 	return ResponseEntity.ok(ResultResponse.of(CONFIRM_EMAIL_FAIL, false));
+		// }
 	}
 
 }

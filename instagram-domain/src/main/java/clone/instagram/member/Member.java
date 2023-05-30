@@ -19,7 +19,16 @@ public class Member {
 	private Gender gender;
 	private Image image;
 
-	public Member(String username, String password, String name, String email) {
+	public static Member ofUnregistered(String username, String password, String name, String email) {
+		return new Member(
+			username,
+			password,
+			name,
+			email
+		);
+	}
+
+	private Member(String username, String password, String name, String email) {
 		this.username = username;
 		this.password = password;
 		this.name = name;

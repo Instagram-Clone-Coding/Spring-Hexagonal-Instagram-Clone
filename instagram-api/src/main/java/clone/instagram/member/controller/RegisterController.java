@@ -41,7 +41,7 @@ public class RegisterController {
 	}
 
 	private RegisterUseCase.Command mapRequestToCommand(RegisterRequest registerRequest) {
-		return new RegisterUseCase.AccountInfoCommand(
+		return new RegisterUseCase.RegisterInfoCommand(
 			Member.ofUnregistered(
 				registerRequest.getUsername(),
 				registerRequest.getPassword(),

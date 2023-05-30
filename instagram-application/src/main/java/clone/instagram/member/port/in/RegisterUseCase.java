@@ -14,7 +14,7 @@ public interface RegisterUseCase {
 
 	@Getter
 	@AllArgsConstructor
-	class AccountInfoCommand implements Command {
+	class RegisterInfoCommand implements Command {
 
 		private final Member member;
 

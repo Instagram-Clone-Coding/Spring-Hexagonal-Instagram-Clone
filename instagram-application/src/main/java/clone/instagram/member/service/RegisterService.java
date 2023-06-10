@@ -17,10 +17,11 @@ public class RegisterService implements RegisterUseCase {
 
 	@Override
 	public boolean invoke(RegisterUseCase.Command command) {
-		if(!command.getClass().isAssignableFrom(RegisterInfoCommand.class)){
+		if (!command.getClass().isAssignableFrom(RegisterUseCase.Command.ToRegisterInfo.class)) {
 			throw new RuntimeException("Command inappropriate");
 		}
-		final Member member = ((RegisterInfoCommand)command).getMember();
+
+		final Member member = ((RegisterUseCase.Command.ToRegisterInfo)command).convertToMember();
 		if (loadMemberPort.existsMemberByUsername(member.getUsername())) {
 			// TODO Exception 공동 처리 작업 후 수정
 			throw new RuntimeException("Username already exists!");

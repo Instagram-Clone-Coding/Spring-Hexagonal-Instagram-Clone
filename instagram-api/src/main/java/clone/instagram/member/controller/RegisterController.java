@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import clone.instagram.member.Member;
 import clone.instagram.member.port.in.RegisterUseCase;
 import clone.instagram.member.request.RegisterRequest;
 import io.swagger.annotations.Api;
@@ -41,13 +40,11 @@ public class RegisterController {
 	}
 
 	private RegisterUseCase.Command mapRequestToCommand(RegisterRequest registerRequest) {
-		return new RegisterUseCase.RegisterInfoCommand(
-			Member.ofUnregistered(
-				registerRequest.getUsername(),
-				registerRequest.getPassword(),
-				registerRequest.getName(),
-				registerRequest.getEmail()
-			)
+		return new RegisterUseCase.Command.ToRegisterInfo(
+			registerRequest.getUsername(),
+			registerRequest.getPassword(),
+			registerRequest.getName(),
+			registerRequest.getEmail()
 		);
 	}
 

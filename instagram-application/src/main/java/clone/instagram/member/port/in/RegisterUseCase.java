@@ -10,13 +10,20 @@ public interface RegisterUseCase {
 
 	interface Command {
 
-	}
+		@Getter
+		@AllArgsConstructor
+		class ToRegisterInfo implements Command {
 
-	@Getter
-	@AllArgsConstructor
-	class RegisterInfoCommand implements Command {
+			private final String username;
+			private final String password;
+			private final String name;
+			private final String email;
 
-		private final Member member;
+			public Member convertToMember() {
+				return Member.ofUnregistered(username, password, name, email);
+			}
+
+		}
 
 	}
 

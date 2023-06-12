@@ -11,7 +11,7 @@ import lombok.Getter;
 public class ResultResponse {
 
 	@ApiModelProperty(value = "Http 상태 코드")
-	private final HttpStatus status;
+	private final int status;
 
 	@ApiModelProperty(value = "Business 상태 코드")
 	private final String code;

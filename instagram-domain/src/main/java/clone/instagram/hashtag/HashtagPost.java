@@ -1,6 +1,6 @@
-package hashtag;
+package clone.instagram.hashtag;
 
-import feed.Post;
+import clone.instagram.feed.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

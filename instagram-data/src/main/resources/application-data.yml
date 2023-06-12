@@ -5,7 +5,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/instagram
+    url: jdbc:mysql://localhost:3306/instagram_hexagonal
     username: root
     password: 1234
   redis:
@@ -21,7 +21,12 @@ spring:
         dialect: org.hibernate.dialect.MySQL55Dialect
     hibernate:
       ddl-auto: update
-
+image:
+  base:
+    url: https://instagram-s3-dev.s3.ap-northeast-2.amazonaws.com/member/base-UUID_base.PNG.png
+    type: PNG
+    name: base
+    uuid: base-UUID
 ---
 spring:
   config:

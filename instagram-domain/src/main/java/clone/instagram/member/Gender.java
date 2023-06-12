@@ -1,4 +1,4 @@
-package member;
+package clone.instagram.member;
 
 public enum Gender {
 

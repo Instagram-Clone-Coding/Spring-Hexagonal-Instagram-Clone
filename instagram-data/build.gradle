@@ -5,13 +5,14 @@ plugins {
 dependencies {
     implementation project(':instagram-common')
     implementation project(':instagram-domain')
+    implementation project(':instagram-application')
 
     // Release on 22 Jul 2021 (latest)
     // https://github.com/querydsl/querydsl
     implementation 'com.querydsl:querydsl-core:5.0.0'
     implementation 'com.querydsl:querydsl-jpa:5.0.0'
     implementation 'com.querydsl:querydsl-apt:5.0.0' // For converting Entity To QEntity
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
 

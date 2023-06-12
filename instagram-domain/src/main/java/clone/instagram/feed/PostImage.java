@@ -1,6 +1,6 @@
-package feed;
+package clone.instagram.feed;
 
-import global.Image;
+import clone.instagram.global.Image;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

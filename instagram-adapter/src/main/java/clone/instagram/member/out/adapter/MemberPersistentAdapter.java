@@ -2,6 +2,7 @@ package clone.instagram.member.out.adapter;
 
 import org.springframework.stereotype.Component;
 
+import clone.instagram.error.exception.member.MemberNotFoundException;
 import clone.instagram.member.Member;
 import clone.instagram.jpa.mapper.MemberMapper;
 import clone.instagram.jpa.entity.member.MemberEntity;
@@ -19,9 +20,8 @@ public class MemberPersistentAdapter implements LoadMemberByUsernamePort, SaveMe
 
 	@Override
 	public Member loadMemberByUsername(String username) {
-		// TODO 예외 처리
 		final MemberEntity memberEntity = memberRepository.findMemberEntityByUsername(username)
-			.orElseThrow(() -> new RuntimeException("Member entity not exists."));
+			.orElseThrow(MemberNotFoundException::new);
 		return memberMapper.mapToDomainModel(memberEntity);
 	}
 

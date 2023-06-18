@@ -19,7 +19,7 @@ spring:
           writetimeout: 5000
   servlet:
     multipart:
-      location: ~\\usr\\spring\\upload
+      location: ${MULTIPART_UPLOAD}
 
 cloud:
   aws:

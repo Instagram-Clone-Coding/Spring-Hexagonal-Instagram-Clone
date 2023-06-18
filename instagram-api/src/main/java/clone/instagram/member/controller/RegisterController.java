@@ -1,13 +1,18 @@
 package clone.instagram.member.controller;
 
+import static clone.instagram.result.ResultCode.*;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import clone.instagram.member.BaseMemberImageProperty;
 import clone.instagram.member.port.in.RegisterUseCase;
 import clone.instagram.member.request.RegisterRequest;
+import clone.instagram.result.ResponseEntityFactory;
+import clone.instagram.result.ResultResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -21,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 public class RegisterController {
 
 	private final RegisterUseCase registerUseCase;
+	private final BaseMemberImageProperty baseMemberImageProperty;
 
 	@ApiOperation(value = "회원가입")
 	@ApiResponses({
@@ -32,11 +38,9 @@ public class RegisterController {
 			+ "M007 - 인증 이메일 전송을 먼저 해야합니다.")
 	})
 	@PostMapping(value = "/accounts")
-	public ResponseEntity<Boolean> register(@RequestBody RegisterRequest registerRequest) {
-		// TODO 반환 타입 정의 후 수정
+	public ResponseEntity<ResultResponse> register(@RequestBody RegisterRequest registerRequest) {
 		final RegisterUseCase.Command command = mapRequestToCommand(registerRequest);
-
-		return ResponseEntity.ok(toResponseEntity(registerUseCase.invoke(command)));
+		return toResponseEntity(registerUseCase.invoke(command));
 	}
 
 	private RegisterUseCase.Command mapRequestToCommand(RegisterRequest registerRequest) {
@@ -44,18 +48,17 @@ public class RegisterController {
 			registerRequest.getUsername(),
 			registerRequest.getPassword(),
 			registerRequest.getName(),
-			registerRequest.getEmail()
+			registerRequest.getEmail(),
+			baseMemberImageProperty
 		);
 	}
 
-	private boolean toResponseEntity(boolean isRegistered) {
-		return isRegistered;
-		// TODO ResultEntity 적용
-		// if (isRegistered) {
-		// 	return ResponseEntity.ok(ResultResponse.of(REGISTER_SUCCESS, true));
-		// } else {
-		// 	return ResponseEntity.ok(ResultResponse.of(CONFIRM_EMAIL_FAIL, false));
-		// }
+	private ResponseEntity<ResultResponse> toResponseEntity(boolean isRegistered) {
+		if (isRegistered) {
+			return ResponseEntityFactory.of(REGISTER_SUCCESS);
+		} else {
+			return ResponseEntityFactory.of(CONFIRM_EMAIL_FAIL);
+		}
 	}
 
 }

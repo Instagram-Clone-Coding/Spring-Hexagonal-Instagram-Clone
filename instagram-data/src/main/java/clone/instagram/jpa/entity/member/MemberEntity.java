@@ -1,7 +1,5 @@
 package clone.instagram.jpa.entity.member;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -13,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import clone.instagram.global.ImageType;
 import clone.instagram.jpa.entity.global.ImageEntity;
 import clone.instagram.member.Gender;
 import lombok.AccessLevel;
@@ -70,13 +67,13 @@ public class MemberEntity {
 	@Embedded
 	private ImageEntity image;
 
-	public MemberEntity(String username, String password, String name, String email) {
+	public MemberEntity(String username, String password, String name, String email, ImageEntity image) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.gender = Gender.PRIVATE;
-		this.image = ImageEntity.createBaseImageEntity();
+		this.image = image;
 	}
 
 }

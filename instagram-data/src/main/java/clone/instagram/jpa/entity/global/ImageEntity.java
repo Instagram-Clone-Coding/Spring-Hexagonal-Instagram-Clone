@@ -7,32 +7,20 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import clone.instagram.global.ImageType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Getter
 @Embeddable
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ImageEntity {
-
-	@Value("${image.base.url}")
-	private static String BASE_IMAGE_URL;
-
-	@Value("${image.base.name}")
-	private static String BASE_IMAGE_NAME;
-
-	@Value("${image.base.type}")
-	private static String BASE_IMAGE_TYPE;
-
-	@Value("${image.base.uuid}")
-	private static String BASE_IMAGE_UUID;
 
 	@Setter
 	@Column(name = "image_url")
@@ -47,15 +35,6 @@ public class ImageEntity {
 
 	@Column(name = "image_uuid")
 	private String imageUUID;
-
-	public static ImageEntity createBaseImageEntity() {
-		return new ImageEntity(
-			BASE_IMAGE_URL,
-			ImageType.valueOf(BASE_IMAGE_TYPE),
-			BASE_IMAGE_NAME,
-			BASE_IMAGE_UUID
-		);
-	}
 
 	@Override
 	public int hashCode() {

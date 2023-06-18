@@ -2,6 +2,7 @@ package clone.instagram.global;
 
 import java.util.Objects;
 
+import clone.instagram.member.BaseMemberImageProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,6 +14,15 @@ public class Image {
 	private ImageType imageType;
 	private String imageName;
 	private String imageUUID;
+
+	public static Image of(BaseMemberImageProperty baseMemberImageProperty) {
+		return new Image(
+			baseMemberImageProperty.getBaseImageUrl(),
+			baseMemberImageProperty.getBaseImageType(),
+			baseMemberImageProperty.getBaseImageName(),
+			baseMemberImageProperty.getBaseImageUUID()
+		);
+	}
 
 	@Override
 	public int hashCode() {

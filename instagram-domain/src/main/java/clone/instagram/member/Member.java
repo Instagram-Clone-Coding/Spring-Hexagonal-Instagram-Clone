@@ -19,20 +19,22 @@ public class Member {
 	private Gender gender;
 	private Image image;
 
-	public static Member ofUnregistered(String username, String password, String name, String email) {
+	public static Member ofUnregistered(String username, String password, String name, String email, Image image) {
 		return new Member(
 			username,
 			password,
 			name,
-			email
+			email,
+			image
 		);
 	}
 
-	private Member(String username, String password, String name, String email) {
+	private Member(String username, String password, String name, String email, Image image) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.email = email;
+		this.image = image;
 	}
 
 	public void updateProfile(UpdateProfileRequest request) {

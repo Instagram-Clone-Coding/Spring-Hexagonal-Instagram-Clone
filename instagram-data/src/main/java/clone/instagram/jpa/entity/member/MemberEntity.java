@@ -12,7 +12,6 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import clone.instagram.jpa.entity.global.ImageEntity;
-import clone.instagram.jpa.factory.BaseImageFactory;
 import clone.instagram.member.Gender;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -68,13 +67,13 @@ public class MemberEntity {
 	@Embedded
 	private ImageEntity image;
 
-	public MemberEntity(String username, String password, String name, String email) {
+	public MemberEntity(String username, String password, String name, String email, ImageEntity image) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.gender = Gender.PRIVATE;
-		this.image = BaseImageFactory.createBaseImageEntity();
+		this.image = image;
 	}
 
 }

@@ -1,5 +1,5 @@
 dependencies {
-    api project(':instagram-data')
+    implementation project(':instagram-data')
     api project(':instagram-application')
 
     implementation group: 'com.maxmind.geoip2', name: 'geoip2', version: '2.3.1'

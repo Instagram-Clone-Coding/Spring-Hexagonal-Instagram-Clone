@@ -1,11 +1,12 @@
 dependencies {
-    implementation project(':instagram-data')
+    api project(':instagram-data')
     api project(':instagram-application')
 
     implementation group: 'com.maxmind.geoip2', name: 'geoip2', version: '2.3.1'
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.0.1.RELEASE'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '1.2.0.RELEASE'
 
+    testImplementation 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

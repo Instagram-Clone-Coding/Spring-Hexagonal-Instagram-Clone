@@ -3,12 +3,9 @@ package clone.instagram.member.service;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 
-import org.assertj.core.api.Assertions;
-import org.assertj.core.api.ThrowableAssert;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -18,7 +15,6 @@ import clone.instagram.member.BaseMemberImageProperty;
 import clone.instagram.member.port.in.RegisterUseCase;
 import clone.instagram.member.port.out.LoadMemberByUsernamePort;
 import clone.instagram.member.port.out.SaveMemberPort;
-import clone.instagram.member.service.RegisterService;
 
 @ExtendWith(MockitoExtension.class)
 public class RegisterServiceTest {

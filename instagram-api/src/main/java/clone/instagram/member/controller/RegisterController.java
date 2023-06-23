@@ -2,6 +2,8 @@ package clone.instagram.member.controller;
 
 import static clone.instagram.result.ResultCode.*;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,6 @@ import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 
 @Api(tags = "멤버 인증 API")
-@Validated
 @RestController
 @RequiredArgsConstructor
 public class RegisterController {
@@ -38,7 +39,7 @@ public class RegisterController {
 			+ "M007 - 인증 이메일 전송을 먼저 해야합니다.")
 	})
 	@PostMapping(value = "/accounts")
-	public ResponseEntity<ResultResponse> register(@RequestBody RegisterRequest registerRequest) {
+	public ResponseEntity<ResultResponse> register(@RequestBody @Valid RegisterRequest registerRequest) {
 		final RegisterUseCase.Command command = mapRequestToCommand(registerRequest);
 		return toResponseEntity(registerUseCase.invoke(command));
 	}

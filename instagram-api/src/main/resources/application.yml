@@ -1,7 +1,9 @@
 spring:
   profiles:
     include: adapter, data, application, local
-
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 auth:
   whitelist:
     api: /login, /login/recovery, /accounts, /**/without,\
